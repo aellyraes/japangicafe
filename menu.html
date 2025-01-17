@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japangi Cafe - Menu</title>
+    <link rel="icon" type="menu" href="images/japangi.png">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+
+       body {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c2c2c; 
+    background: url('images/') no-repeat center center fixed;
+    background-size: cover;
+    color: #f7f3e9;
+}
+
+ nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color:hsla(49, 100%, 93%, 0.605);;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between; /* Ensures space between the text and logo */
+        }
+
+        .dropdown > a {
+            font-family: 'Great Vibes', cursive;
+            color: #8b00009f;
+            font-size: 24px;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown > a img {
+            height: 30px;
+            margin-left: 15px;
+        }
+
+        .dropdown > a i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            margin-top: 5px;
+            top: 40px; 
+        }
+
+        .dropdown-menu a {
+            color: #f7f3e9;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #8b00009f;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        section {
+            text-align: center;
+            padding: 60px 30px;
+            color: #f7f3e9;
+        }
+
+        #background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+     }
+
+    #promotions {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #f7f3e9;
+    }
+
+
+        #promotions h2 {
+            font-family: 'Playfair Display', serif;
+            color: #fffdd0;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 500px;
+            margin: 2rem auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .slides {
+            display: none;
+        }
+
+        .slides img {
+            width: 100%;
+            height: auto;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 3px;
+            user-select: none;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .active-slide {
+            display: block;
+        }
+
+       #menu-images {
+    padding: 40px 20px;
+    background-color: hsla(49, 100%, 93%, 0.605);
+    text-align: center;
+}
+
+#menu-images h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.menu-category {
+    margin-bottom: 40px;
+}
+
+.menu-category h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #8b0000;
+}
+
+.menu-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu-item {
+    flex: 1 1 200px;
+    max-width: 300px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.menu-item p {
+    padding: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.menu-price {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f9f1c7;
+    background-color: #8b0000;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+footer {
+            background-color: #8b00009f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            margin-top: 0; 
+        }
+        
+        .footer-icons a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .footer-icons a:hover {
+            color: #ffd700;
+        }
+
+        .date-time {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.modal img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="dropdown">
+            <a href="#">
+                <i class="fa fa-bars"></i>
+                Japangi Cafe
+                <img src="images/logo.png" alt="Japangi Logo"> 
+            </a>
+            <div class="dropdown-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="menu.html">Our Menu</a>
+                <a href="location.html">Location</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="promotions">
+        <!-- Background Video -->
+        <video autoplay muted loop id="background-video">
+            <source src="videos/menu3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    
+        <h2>Latest Menu</h2>
+        <div class="slideshow-container">
+            <div class="slides active-slide">
+                <img src="images2/promo1.jpg" alt="Promotion 1">
+                <p>Soft Cookies, give the variety of flavour!</p>
+            </div>
+            <div class="slides">
+                <img src="images2/promo2.jpg" alt="Promotion 2">
+                <p>New Coconut Series!</p>
+            </div>
+            <div class="slides">
+                <img src="images2/promo3.jpg" alt="Promotion 3">
+                <p>Spicy Ramyeon!</p>
+            </div>
+            <div class="slides">
+                <img src="images2/promo4.jpg" alt="Promotion 4">
+                <p>Bowl of Hot, Soupy, Spicy Noodles!</p>
+            </div>
+            <div class="slides">
+                <img src="images2/promo5.jpg" alt="Promotion 5">
+                <p>We are ready to serve!</p>
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="menu-images" class="fade-in">
+        <h2>Our Menu</h2>
+    
+        
+        <div class="menu-category">
+            <h3>Joyeux Soft Cookies</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images2/js1" alt="ACC">
+                    <p>Almond Choco Chips</p>
+                    <span class="menu-price">RM 8.90</span>   
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images2/js2" alt="">
+                    <p>Double Choco</p>
+                    <span class="menu-price">RM 8.90</span>   
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images2/js3" alt="">
+                    <p>Earl Grey Walnut</p>
+                    <span class="menu-price">RM 8.90</span>   
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images2/js4" alt="">
+                    <p>Matcha with Choco</p>
+                    <span class="menu-price">RM 8.90</span>   
+                </div>
+                
+                <div class="menu-item">
+                    <img src="images2/js5" alt="">
+                    <p>Oreo Chewy</p>
+                    <span class="menu-price">RM 8.90</span>   
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu-category">
+            <h3>Joyeux Soft Cookies Gift Box</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images2/j1" alt="">
+                    <p>Almond Choco Chips</p>
+                    <span class="menu-price">RM 50.00</span>
+                </div>
+        
+                <div class="menu-item">
+                    <img src="images2/j2" alt="">
+                    <p>Double Choco</p>
+                    <span class="menu-price">RM 50.00</span>
+                </div>
+        
+                <div class="menu-item">
+                    <img src="images2/j3" alt="">
+                    <p>Earl Grey Walnut</p>
+                    <span class="menu-price">RM 50.00</span>
+                </div>
+        
+                <div class="menu-item">
+                    <img src="images2/j4" alt="">
+                    <p>Matcha with Choco</p>
+                    <span class="menu-price">RM 50.00</span>
+                </div>
+        
+                <div class="menu-item">
+                    <img src="images2/j5" alt="">
+                    <p>Oreo Chewy</p>
+                    <span class="menu-price">RM 50.00</span>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="menu-category">
+            <h3>Egg Pocket</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images2/e1" alt="">
+                    <p>Classic Egg Pocket</p>
+                    <span class="menu-price">RM 11.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/e2" alt="">
+                    <p>Ham & Cheese Pocket</p>
+                    <span class="menu-price">RM 13.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/e3" alt="">
+                    <p>Beef Bulgogi Pocket</p>
+                    <span class="menu-price">RM 15.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/e4" alt="">
+                    <p>Spicy Chicken Dakgalbi Pocket</p>
+                    <span class="menu-price">RM 13.90</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu-category">
+            <h3>Krazy Combo</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images2/k1" alt="">
+                    <p>Combo 1</p>
+                    <span class="menu-price">RM 17.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/k3" alt="">
+                    <p>Combo 3</p>
+                    <span class="menu-price">RM 17.90</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu-category">
+            <h3>Dosirak</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images3/d1" alt="">
+                    <p>Chicken (Luncheon Meat)</p>
+                    <span class="menu-price">RM 15.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images3/d2" alt="">
+                    <p>Beef (Luncheon Meat)</p>
+                    <span class="menu-price">RM 16.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images3/d3" alt="">
+                    <p>Tuna</p>
+                    <span class="menu-price">RM 16.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images3/d4" alt="">
+                    <p>Chicken Sausage</p>
+                    <span class="menu-price">RM 14.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images3/d5" alt="">
+                    <p>Tofu</p>
+                    <span class="menu-price">RM 13.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images3/d6" alt="">
+                    <p>Beef Bulgogi</p>
+                    <span class="menu-price">RM 17.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images3/d7" alt="">
+                    <p>Spicy Chicken Dakgalbi</p>
+                    <span class="menu-price">RM 15.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images3/d8" alt="">
+                    <p>Boneless Fried Chicken</p>
+                    <span class="menu-price">RM 15.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images3/d9" alt="">
+                    <p>Kimchi Fried Rice with Cheese and Egg</p>
+                    <span class="menu-price">RM 13.90</span>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="menu-category">
+            <h3>Ramyeon</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images3/r1" alt="">
+                    <p>Original Ramyeon</p>
+                    <span class="menu-price">RM 11.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images3/r2" alt="">
+                    <p>Spicy Ramyeon</p>
+                    <span class="menu-price">RM 13.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images3/r3" alt="">
+                    <p>Kimchi Soup Ramyeon</p>
+                    <span class="menu-price">RM 14.90</span>
+                </div>            
+            </div>
+        </div>
+        
+        <div class="menu-category">
+            <h3>Korean Chicken</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images4/c1" alt="">
+                    <p>Sweet & Spicy Wingette & Drumette 6pcs</p>
+                    <span class="menu-price">RM 16.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images4/c2" alt="">
+                    <p>Honey Garlic Wingette & Drumette 6pcs</p>
+                    <span class="menu-price">RM 16.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images4/c3" alt="">
+                    <p>Soy Garlic Wingette & Drumette 6pcs</p>
+                    <span class="menu-price">RM 16.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images4/c4" alt="">
+                    <p>Sweet & Spicy Boneless Chicken with Rice Cake</p>
+                    <span class="menu-price">RM 14.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images4/c5" alt="">
+                    <p>Honey Garlic Boneless Chicken with Rice Cake</p>
+                    <span class="menu-price">RM 14.90</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu-category">
+            <h3>Shake Shake Series</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images4/s1" alt="">
+                    <p>Korean (Snowing) Boneless Chicken</p>
+                    <span class="menu-price">RM 13.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images4/s2" alt="">
+                    <p>Korean (Snowing) Wing & Drumette</p>
+                    <span class="menu-price">RM 13.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images4/s3" alt="">
+                    <p>Nacho Cheese Boneless Chicken</p>
+                    <span class="menu-price">RM 15.50</span>
+                </div>  
+                <div class="menu-item">
+                    <img src="images4/s4" alt="">
+                    <p>Nacho Cheese Wing & Drumette</p>
+                    <span class="menu-price">RM 15.50</span>
+                </div>            
+            </div>
+        </div>
+        
+        <div class="menu-category">
+            <h3>Gimbap</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images4/g1" alt="">
+                    <p>Kimchi Gimbap</p>
+                    <span class="menu-price">RM 12.00</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images4/g2" alt="">
+                    <p>Tuna Mayo Gimbap</p>
+                    <span class="menu-price">RM 15.50</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images4/g3" alt="">
+                    <p>Tuna Kimchi Gimbap</p>
+                    <span class="menu-price">RM 15.50</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images4/g4" alt="">
+                    <p>Beef Bulgogi Gimbap</p>
+                    <span class="menu-price">RM 16.00</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images4/g5" alt="">
+                    <p>Cheese Gimbap</p>
+                    <span class="menu-price">RM 13.00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu-category">
+            <h3>Soup</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images5/soup1" alt="">
+                    <p>Jjampong Soup</p>
+                    <span class="menu-price">RM 28.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images5/soup2" alt="">
+                    <p>Kimchi Stew</p>
+                    <span class="menu-price">RM 21.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images5/soup3" alt="">
+                    <p>Beef Stew</p>
+                    <span class="menu-price">RM 28.90</span>
+                </div>            
+            </div>
+        </div>
+        
+        <div class="menu-category">
+            <h3>Bundle</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images5/b1" alt="">
+                    <p>Bulgogi Jeongol Bundle</p>
+                    <span class="menu-price">RM 67.90</span>
+                    <p>(Suitable for 7 person)</p>
+                </div>
+                <div class="menu-item">
+                    <img src="images5/b2" alt="">
+                    <p>Chikin Kimchi Jjigae Bundle</p>
+                    <span class="menu-price">RM 60.90</span>
+                    <p>(Suitable for 5 person)</p>
+                </div>
+                <div class="menu-item">
+                    <img src="images5/b3" alt="">
+                    <p>Jjampong Bundle</p>
+                    <span class="menu-price">RM 66.90</span>
+                    <p>(Suitable for 6 person)</p>
+                </div>            
+            </div>
+        </div>        
+        
+        <div class="menu-category">
+            <h3>Snacks</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images5/snack1" alt="">
+                    <p>Original Fries</p>
+                    <span class="menu-price">RM 9.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images5/snack2" alt="">
+                    <p>Nuggets</p>
+                    <span class="menu-price">RM 9.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images5/snack3" alt="">
+                    <p>Fish Cake</p>
+                    <span class="menu-price">RM 6.00</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images5/snack4" alt="">
+                    <p>Mini Sausage</p>
+                    <span class="menu-price">RM 2.00</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images5/snack5" alt="">
+                    <p>Seaweed Rice Ball</p>
+                    <span class="menu-price">RM 12.00</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images5/snack6" alt="">
+                    <p>Mandu (2pcs)</p>
+                    <span class="menu-price">RM 6.00</span>
+                </div>
+            </div>
+        </div>
+     
+        <div class="menu-category">
+            <h3>Teabag</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images6/t1" alt="">
+                    <p>Chrysanthemum Wolfberry</p>
+                    <span class="menu-price">RM 8.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images6/t2" alt="">
+                    <p>Rose Tea</p>
+                    <span class="menu-price">RM 8.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images6/t3" alt="">
+                    <p>Sakura Oolong</p>
+                    <span class="menu-price">RM 8.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images6/t4" alt="">
+                    <p>Lychee Oolong</p>
+                    <span class="menu-price">RM 8.90</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu-category">
+            <h3>Milk Tea</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images6/t5" alt="">
+                    <p>Classic Milk Tea</p>
+                    <span class="menu-price">RM 6.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images6/t6" alt="">
+                    <p>Classic Boba Milk Tea</p>
+                    <span class="menu-price">RM 8.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images6/t32" alt="">
+                    <p>Cheese Foam Milk Tea</p>
+                    <span class="menu-price">RM 9.50</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images6/t7" alt="">
+                    <p>Brown Sugar Boba Milk Tea</p>
+                    <span class="menu-price">RM 9.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images6/t35" alt="">
+                    <p>Garden Milk Tea</p>
+                    <span class="menu-price">RM 9.90</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu-category">
+            <h3>Milk</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images6/t8" alt="">
+                    <p>Chocolate</p>
+                    <span class="menu-price">RM 8.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images6/t9" alt="">
+                    <p>Strawberry Milk</p>
+                    <span class="menu-price">RM 10.90</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu-category">
+            <h3>Handcrafted Tea</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images2/t10" alt="">
+                    <p>Passion Fruit</p>
+                    <span class="menu-price">RM 8.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/t11" alt="">
+                    <p>Peach</p>
+                    <span class="menu-price">RM 8.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/t12" alt="">
+                    <p>Strawberry</p>
+                    <span class="menu-price">RM 9.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/t13" alt="">
+                    <p>Mango</p>
+                    <span class="menu-price">RM 8.90</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu-category">
+            <h3>Refresher</h3>
+            <div class="menu-gallery">
+                <div class="menu-item">
+                    <img src="images2/t17" alt="">
+                    <p>Lychee Boom</p>
+                    <span class="menu-price">RM 10.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/t18" alt="">
+                    <p>Unicorn Lemonade</p>
+                    <span class="menu-price">RM 10.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/t19" alt="">
+                    <p>Lemonade</p>
+                    <span class="menu-price">RM 6.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/t20" alt="">
+                    <p>Passion Fruit Soda</p>
+                    <span class="menu-price">RM 8.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/t21" alt="">
+                    <p>Peach Soda</p>
+                    <span class="menu-price">RM 8.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/t22" alt="">
+                    <p>Strawberry Soda</p>
+                    <span class="menu-price">RM 9.90</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images2/t23" alt="">
+                    <p>Mango Soda</p>
+                    <span class="menu-price">RM 8.90</span>
+                </div>
+            </div>
+        </div>
+        
+
+    </section>
+    
+    <footer>
+        <div class="footer-icons">
+            <a href="https://m.facebook.com/JapangiCafe/" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/japangicafe/?hl=en" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="tel:082-456-895" aria-label="Phone">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div>
+        <div class="date-time" id="dateTime"></div>
+        <p>&copy; 2025 Japangi Cafe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeElements = document.querySelectorAll(".fade-in");
+
+            const handleScroll = () => {
+                fadeElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+                    if (isVisible) {
+                        element.classList.add("visible");
+                    }
+                });
+            };
+
+            window.addEventListener("scroll", handleScroll);
+            handleScroll(); 
+        });
+
+        const updateDateTime = () => {
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            document.getElementById("dateTime").textContent = now.toLocaleDateString("en-US", options);
+        };
+
+        setInterval(updateDateTime, 1000);
+
+    </script>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".slides");
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove("active-slide");
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add("active-slide");
+        }
+
+      
+        setInterval(() => changeSlide(1), 5000);
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('menuModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalText = document.getElementById('modalText');
+        const closeButton = document.querySelector('.close');
+
+        
+        document.querySelectorAll('.menu-item img').forEach(item => {
+            item.addEventListener('click', () => {
+                modal.style.display = 'block';
+                modalImage.src = item.src;
+                modalText.textContent = item.nextElementSibling.textContent;
+            });
+        });
+
+      
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        
+        window.addEventListener('click', event => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+<div id="menuModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modalImage" src="" alt="">
+        <p id="modalText"></p>
+    </div>
+</div>
+
+
+</body>
+</html>

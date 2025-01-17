@@ -1,0 +1,302 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japangi Cafe - Location</title>
+    <link rel="icon" type="images/png" href="images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2c2c2c;
+            color: #f7f3e9;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color:hsla(49, 100%, 93%, 0.605);;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between; 
+        }
+
+        .dropdown > a {
+            font-family: 'Great Vibes', cursive;
+            color: #8b00009f;
+            font-size: 24px;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown > a img {
+            height: 30px;
+            margin-left: 15px;
+        }
+
+        .dropdown > a i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            margin-top: 5px;
+            top: 40px; 
+        }
+
+        .dropdown-menu a {
+            color: #f7f3e9;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #8b00009f;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+
+        section {
+            position: relative;
+            text-align: center;
+            padding: 60px 30px;
+            color: #f7f3e9;
+        }
+
+        #location {
+            position: relative;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        #location video {
+             position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.40;
+        }
+
+        #location h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+
+        #map-section {
+            background-color: #8b00009f;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #map-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #fffdd0;
+            margin-bottom: 20px;
+        }
+
+        #map-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            font-weight: 300;
+            color: #f7f3e9;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #8b00009f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            margin-top: 0; 
+        }
+        
+        .footer-icons a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .footer-icons a:hover {
+            color: #ffd700;
+        }
+
+        .date-time {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="dropdown">
+            <a href="#">
+                <i class="fa fa-bars"></i>
+                Japangi Cafe
+                <img src="images/logo.png" alt="Japangi Logo"> 
+            </a>
+            <div class="dropdown-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="menu.html">Our Menu</a>
+                <a href="location.html">Location</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="location">
+        <video autoplay muted loop>
+            <source src="videos/end.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h2>Location</h2>
+    </section>
+
+    <section id="map-section" style="text-align: center; padding: 50px 20px;">
+    <!-- Map -->
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4409413756434!2d110.35887257472503!3d1.5055676984803237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba71842539c73%3A0x1820727060165ef6!2sJapangi%20Caf%C3%A9!5e0!3m2!1sen!2smy!4v1736135563363!5m2!1sen!2smy" 
+        width="100%" 
+        height="500" 
+        style="border: 3px solid #8b0000; border-radius: 15px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+
+    <div style="margin-top: 30px; padding: 20px; background-color: #8b00009f; color: #f7f3e9; border-radius: 15px; max-width: 1000px; margin-left: auto; margin-right: auto; display: flex; align-items: center; gap: 20px;">
+        <!-- Address Section -->
+        <div style="flex: 2; text-align: left;">
+            <h2 style="color: #fffdd0; margin-bottom: 10px;">Japangi Café</h2>
+            <p style="margin: 5px 0;">
+                <strong>Address:</strong><br>
+                Level 1, Lot 22, Block A2, Saradise,<br>
+                93250 Kuching, Sarawak<br>
+            </p>
+            <p style="margin: 5px 0;">
+                <strong>Japangi Hours:</strong><br>
+            </p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-family: Arial, sans-serif;">
+                <thead>
+                    <tr>
+                        <th style="padding: 15px; background-color: #8B0000; color: white; text-align: center; font-size: 18px; border: 1px solid #ddd;">Day</th>
+                        <th style="padding: 15px; background-color: #8B0000; color: white; text-align: center; font-size: 18px; border: 1px solid #ddd;">Operating Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #8B0000;">
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">Monday</td>
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">09:00 AM to 09:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">Tuesday</td>
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">09:00 AM to 09:00 PM</td>
+                    </tr>
+                    <tr style="background-color: #8B0000;">
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">Wednesday</td>
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">09:00 AM to 09:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">Thursday</td>
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">09:00 AM to 09:00 PM</td>
+                    </tr>
+                    <tr style="background-color: #8B0000;">
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">Friday</td>
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">09:00 AM to 09:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">Saturday</td>
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">09:00 AM to 09:00 PM</td>
+                    </tr>
+                    <tr style="background-color: #8B0000;">
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">Sunday</td>
+                        <td style="padding: 15px; text-align: center; border: 1px solid #ddd;">09:00 AM to 09:00 PM</td>
+                    </tr>
+                </tbody>
+            </table>  
+        </div>
+
+        <!-- Store Image Section -->
+        <div style="flex: 1; text-align: center;">
+            <img src="images/kedai.jpg" alt="kedai" style="width: 500px; height: auto; border-radius: 10px; border: 2px solid #f7f3e9;">
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-icons">
+        <a href="https://m.facebook.com/JapangiCafe/" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/japangicafe/?hl=en" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="tel:082-456-895" aria-label="Phone">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+    <div class="date-time" id="dateTime"></div>
+    <p>&copy; 2025 Japangi Cafe. All rights reserved.</p>
+</footer>
+<script>
+    const updateDateTime = () => {
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        document.getElementById("dateTime").textContent = now.toLocaleDateString("en-US", options);
+    };
+
+    setInterval(updateDateTime, 1000);
+
+</script>
+</section>
+</body>
+</html>
